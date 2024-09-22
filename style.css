@@ -38,7 +38,7 @@ justify-items: center;
 
 }
 .mobile__content{
-    background-color:#fff;
+    background :#fff;
 
 }
 
@@ -59,12 +59,11 @@ justify-items: center;
     font-size: 5em;
 }
 
-
+/* UI - Components */
 .selectbox {
     width: max-content;
     margin: 0 auto;
     position: relative;
-
 }
 .selectbox__selected {
     font-size: 18px;
@@ -76,26 +75,22 @@ justify-items: center;
 .ic_arrow {
     font-size: 0.7em;
     margin-left: 10px;
-
 }
-.selectbox.open.selectbox__list{
+.selectbox.open .selectbox__list{
     top: 120%;
     max-height: 200px;
-    
-
 }
 .selectbox__list {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    background-color: #fff;
-    transition: all 0.3 ease-in-out;
-    border-radius: 3px;
-    padding: 4px 0;
     max-height: 0;
     overflow: hidden;
-
+    padding: 4px 8px;
+    border-radius: 3px;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
 }
 .selectbox__item {
     cursor: pointer;
@@ -106,5 +101,4 @@ justify-items: center;
 
 .selectbox__item:not(:last-child){
     margin-bottom: 4px;
-    
 }
