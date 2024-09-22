@@ -4,6 +4,7 @@
 --gradient: linear-gradient(to right, #8b4f82, #e1a8ce);
 --grey: #f0f0f0;
 --light: white;
+--transition: all 0.3s ease-in-out;
 }
 
 *{
@@ -87,28 +88,37 @@ justify-items: center;
     font-size: 18px;
     font-weight: 500;
     position: relative;
-    z-index: 1;
+    z-index: 2;
     background-color: #fff;
 }
+.selectbox.open .ic_arrow{
+    transform: rotate(-180deg);
+
+}
 .ic_arrow {
+    display: inline-block;
     font-size: 0.7em;
     margin-left: 10px;
+    transition: var(--transition);
+    transform: rotate(0deg);
 }
 .selectbox.open .selectbox__list{
     top: 120%;
     max-height: 200px;
 }
 .selectbox__list {
+
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
+    left: -12px;
+    right: -12px;
+    z-index: 1;
     max-height: 0;
     overflow: hidden;
-    padding: 4px 0;
+    padding: 8px 12px;
     border-radius: 3px;
     background-color: #fff;
-    transition: all 0.3s ease-in-out;
+    transition: var(--transition);
 }
 .selectbox__item {
     cursor: pointer;
@@ -116,7 +126,7 @@ justify-items: center;
 .selectbox__item.selected,
 .selectbox__item:hover{
     font-weight: 600;
-    color: #7e77ee;
+    color: #a54087;
 }
 
 .selectbox__item:not(:last-child){
