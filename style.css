@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
+@import url('./fonts/icons/style.css');
+:root{
+--gradient: linear-gradient(to right, #a894e6, #7e77ee);
+--grey: #f0f0f0;
+--light: white;
+}
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+font-family: 'Rubik', sans-serif;
+background-color: #e0e5eb;
+height: 100vh;
+display: grid;
+align-items: center;
+justify-items: center;
+}
+
+.mobile{
+    width: 350 px;
+    height: 730px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: -10px 10px 20px rgba(0,0,0,0.4);
+    display: grid;
+    grid-template-rows: 48px 1fr 62px;
+
+}
+
+.mobile__top,
+.mobile__bottom{
+    align-self: center;
+    justify-self: center;
+
+}
+.mobile__content{
+    background-color:#fff;
+
+}
+
+.rooms {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+}
+.room {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    font-size: 16px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.room i{
+    font-size: 5em;
+}
+
+
+.selectbox {
+    width: max-content;
+    margin: 0 auto;
+    position: relative;
+
+}
+.selectbox__selected {
+    font-size: 18px;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+}
+.ic_arrow {
+    font-size: 0.7em;
+    margin-left: 10px;
+
+}
+.selectbox.open.selectbox__list{
+    top: 120%;
+    max-height: 200px;
+    
+
+}
+.selectbox__list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    transition: all 0.3 ease-in-out;
+    border-radius: 3px;
+    padding: 4px 0;
+    max-height: 0;
+    overflow: hidden;
+
+}
+.selectbox__item {
+    cursor: pointer;
+}
+.selectbox__selected, .selectbox__item:hover{
+    font-weight: 600;
+}
+
+.selectbox__item:not(:last-child){
+    margin-bottom: 4px;
+    
+}
