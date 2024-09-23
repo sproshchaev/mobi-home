@@ -76,10 +76,13 @@ justify-items: center;
     opacity: 0.7;
 }
 
+
+
+
 /* UI - Components */
 .selectbox {
     cursor: pointer;
-    width: max-content;
+    width: 143px;
     margin: 0 auto;
     position: relative;
     margin-bottom: 25px;
@@ -90,6 +93,9 @@ justify-items: center;
     position: relative;
     z-index: 2;
     background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .selectbox.open .ic_arrow{
     transform: rotate(-180deg);
