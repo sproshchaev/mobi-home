@@ -44,7 +44,8 @@ justify-items: center;
 }
 
 .rooms {
-    display: grid;
+    
+    display: none;
     grid-template-columns: repeat(2, 150px);
     justify-content: center;
     align-items: center;
