@@ -44,8 +44,10 @@ justify-items: center;
 }
 
 .rooms {
-    
-    display: none;
+    display: grid;
+             
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 20px;
     grid-template-columns: repeat(2, 150px);
     justify-content: center;
     align-items: center;
@@ -74,6 +76,44 @@ justify-items: center;
 .room i{
     align-self: center;
     font-size: 5em;
+    opacity: 0.7;
+}
+
+/*Страница настроек комнаты*/
+
+.settings{
+    padding: 0 20px;
+}
+.settings__tabs{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 94px;
+    grid-gap: 14px;
+
+}
+
+
+.option {
+    cursor: pointer;
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    align-content: center;
+    font-size: 12px;
+    text-align: center;
+    background-color: var(--grey);
+    border-radius: 12px;
+}
+.option.selected{
+    background: var(--gradient);
+    color: white
+
+}
+.option.selected i{
+    opacity: 1;
+}
+.option i{
+    align-self: center;
+    font-size: 3em;
     opacity: 0.7;
 }
 
