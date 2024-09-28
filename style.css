@@ -182,6 +182,41 @@ justify-items: center;
     transition: all 0.5s ease-in-out;
 }
 
+.settings__screen{
+   display: none;
+}
+.settings__screen-active{
+   display: block; 
+}
+.settings__screen-item{
+    text-align: center;
+    font-size: 30px;
+    color: #666;
+}
+
+.slider{
+   width: 100px;
+   height: 250px;
+   margin: 0 auto;
+   background-color: var(--grey);
+   border-radius: 16px;
+   display: grid;
+   align-content: end;
+   grid-template-rows: minmax(30px, 45%);
+   overflow: hidden;
+   transition: all 0.5s ease-in-out;
+}
+
+.slider__progress{
+    background: var(--gradient);
+    color: #fff;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    font-size: 18px;
+}
+
+
 .line,
 .line-active,
 .round{
