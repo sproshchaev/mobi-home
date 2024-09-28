@@ -45,7 +45,7 @@ justify-items: center;
 
 .rooms {
     display: grid;
-             
+    display: none;           
     grid-template-columns: repeat(2, 1fr);
     margin: 0 20px;
     grid-template-columns: repeat(2, 150px);
@@ -79,6 +79,12 @@ justify-items: center;
     opacity: 0.7;
 }
 
+
+.settings__screen-title{
+    margin: 30px 0 15px;
+    text-align: center;
+    font-weight: 300;
+}
 /*Страница настроек комнаты*/
 
 .settings{
@@ -116,9 +122,106 @@ justify-items: center;
     font-size: 3em;
     opacity: 0.7;
 }
+/* КНОПКА РЕГУЛИРОВКИ ТЕМПЕРАТУРЫ*/
+.temperature-button {
+    width: 240px;
+    height: 240px;
+    margin: 0 auto;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    position: relative;
+}
 
+.temperature-button__info{
+    position: relative;
+    font-size: 32px;
+    width: 70%;
+    height: 70%;
+    border-radius: 70%;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+}
 
+.temperature-button__info::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 4%;
+    left: 4%;
+    right: 4%;
+    bottom: 4%;
+    border-radius: 100%;
+    opacity: 0.3;
+    border: 1px solid #000;
+
+}
+.dots-box {
+    transform: rotate(5deg);
+    transform-origin: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.dots,
+.line,
+.line-active,
+.round,
+.separate-lines,
+.separate-dots{
+    fill: transparent; 
+    stroke: var(--grey);
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-dasharray: 0 21;
+    transition: all 0.5s ease-in-out;
+}
+
+.line,
+.line-active,
+.round{
+    stroke-dasharray: 276 276;
+    stroke-width: 1px;
+    transform: rotate(48deg);
+    transform-origin: center;
+}
+
+.line-active{
+    stroke: black;
+    stroke-dasharray: 100 276;
+}
+
+.round{
+    stroke-width: 6px;
+    stroke-dasharray: 0 276;  
+    transform: rotate(48deg);
+
+}
+
+.separate-lines,
+.separate-dots{
+    stroke: white;
+    transform: rotate(60deg);
+    transform-origin: center;
+}
+.separate-lines{
+    stroke-dasharray: 53 276;
+    transform: rotate(49deg);
+}
+.separate-dots{
+    stroke-dasharray: 40 313;
+}
+
+.power{
+    background: var(--gradient);
+    color: #fff;
+    width: 70px;
+}
 
 /* UI - Components */
 .selectbox {
