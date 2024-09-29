@@ -44,14 +44,14 @@ justify-items: center;
 }
 
 .rooms {
-    display: grid;
-    display: none;           
+    display: grid;      
     grid-template-columns: repeat(2, 1fr);
     margin: 0 20px;
     grid-template-columns: repeat(2, 150px);
     justify-content: center;
     align-items: center;
     grid-gap: 14px;
+    display: none;
 }
 
 
@@ -89,6 +89,8 @@ justify-items: center;
 
 .settings{
     padding: 0 20px;
+    display: none;
+    display: block;
 }
 .settings__tabs{
     display: grid;
@@ -210,13 +212,18 @@ justify-items: center;
     border-radius: 60px;
     background: var(--grey);
     margin: 30px auto 0;
+    position: relative;
 }
 
 .switch div{
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 28px;
     height: 28px;
     border-radius: 28px;
     background: var(--gradient);
+    transition: var(--transition);
 }
 .slider__progress{
     position: absolute;
@@ -246,7 +253,8 @@ justify-items: center;
 
 .line-active{
     stroke: black;
-    stroke-dasharray: 100 276;
+    stroke-dasharray: 276 276;
+    transition: all 0.5s ease-in-out;
 }
 
 .round{
