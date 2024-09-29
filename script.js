@@ -9,6 +9,9 @@ const dom = {
     temperatureRound: document.getElementById('temperature-round'),
     temperature: document.getElementById('temperature'),
     temperatureBtn: document.getElementById('temperature-btn'),
+    temperatureSaveBtn: document.getElementById('save-temperature'),
+    temperaturePowerBtn: document.getElementById('power'),
+
 }
 dom.selectbox.querySelector('.selectbox__selected').onclick = (event) => {
     dom.selectbox.classList.toggle('open')
@@ -24,38 +27,39 @@ const rooms = {
 }
 let activeRoom = 'all';
 const roomsData = {
-  all: {
-    temperature: 0,
-    lights: 0,
-    humidity: 0,
-  },
   livingroom: {
-    temperature: 0,
+    temperatureOff: false,
+    temperature: 16,
     lights: 0,
     humidity: 0,
   },
   bedroom : {
-    temperature: 0,
+    temperatureOff: false,
+    temperature: 16,
     lights: 0,
     humidity: 0,
   },
   kitchen: {
-    temperature: 0,
+    temperatureOff: false,
+    temperature: 16,
     lights: 0,
     humidity: 0,
   },
   bathroom: {
-    temperature: 0,
+    temperatureOff: false,
+    temperature: 16,
     lights: 0,
     humidity: 0,
   },
   studio: {
-    temperature: 0,
+    temperatureOff: false,
+    temperature: 16,
     lights: 0,
     humidity: 0,
   },
   washingroom: {
-    temperature: 0,
+    temperatureOff: false,
+    temperature: 16,
     lights: 0,
     humidity: 0,
   }
@@ -93,8 +97,12 @@ function selectRoom(room) {
   }
   if (room != 'all') {
     const newSelectedRoom = dom.rooms.querySelector(`[data-room=${room}]`);
+    const temperature = roomsData[room].temperature;
     newSelectedRoom.classList.add('selected');
     renderScreen(false)
+    activeRoom = room;
+    dom.temperature.innerText = temperature;
+    setTemperaturePower(temperature);
   } else {
     renderScreen(true)
 
@@ -105,8 +113,7 @@ function selectRoom(room) {
     newSelectedItem.classList.add('selected');
     const selectboxSelected = dom.selectbox.querySelector('.selectbox__selected span')
     selectboxSelected.innerText = rooms[room]
-    activeRoom = room;
-    dom.temperature = roomsData
+ 
 
 }
 
@@ -187,9 +194,35 @@ function changeTemperature(){
           temperature = temperature + 1;
         }
         change = newChange;
+        roomsData[activeRoom].temperature = temperature
         renderTemperature(temperature);
       }
     }  
   }
 }
 changeTemperature()
+
+
+dom.temperatureSaveBtn.onclick = () => {
+   const temperature = +dom.temperature.innerText;
+   roomsData[activeRoom].temperature = temperature;
+}
+
+dom.temperaturePowerBtn.onclick = () => {
+  const power = dom.temperaturePowerBtn;
+  power.classlist.toggle('off');
+
+  if (power.matches('.off')){
+    roomsData[activeRoom].temperatureOff = true;
+  } else {
+    roomsData[activeRoom].temperatureOff = false;
+  }
+}
+function setTemperaturePower(){
+  if (roomsData[activeroom].temperatureOff) {
+    dom.temperaturePowerBtn.classList.add('off');
+  } else {
+      dom.temperaturePowerBtn.classList.remove('off');
+  }
+}
+
