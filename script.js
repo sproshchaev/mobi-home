@@ -218,6 +218,7 @@ dom.temperaturePowerBtn.onclick = () => {
     roomsData[activeRoom].temperatureOff = false;
   }
 }
+/* Установка значения кнопки включения температуры */
 function setTemperaturePower(){
   if (roomsData[activeroom].temperatureOff) {
     dom.temperaturePowerBtn.classList.add('off');
