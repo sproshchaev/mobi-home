@@ -130,6 +130,7 @@ justify-items: center;
 }
 /* КНОПКА РЕГУЛИРОВКИ ТЕМПЕРАТУРЫ*/
 .temperature-button {
+    cursor: pointer;
     width: 240px;
     height: 240px;
     margin: 0 auto;

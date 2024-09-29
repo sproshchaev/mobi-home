@@ -22,6 +22,44 @@ const rooms = {
     studio: 'Кабинет',
     washingroom: 'Уборная',
 }
+let activeRoom = 'all';
+const roomsData = {
+  all: {
+    temperature: 0,
+    lights: 0,
+    humidity: 0,
+  },
+  livingroom: {
+    temperature: 0,
+    lights: 0,
+    humidity: 0,
+  },
+  bedroom : {
+    temperature: 0,
+    lights: 0,
+    humidity: 0,
+  },
+  kitchen: {
+    temperature: 0,
+    lights: 0,
+    humidity: 0,
+  },
+  bathroom: {
+    temperature: 0,
+    lights: 0,
+    humidity: 0,
+  },
+  studio: {
+    temperature: 0,
+    lights: 0,
+    humidity: 0,
+  },
+  washingroom: {
+    temperature: 0,
+    lights: 0,
+    humidity: 0,
+  }
+}
 
 document.body.onclick = (event) => {
     const { target } = event
@@ -67,6 +105,8 @@ function selectRoom(room) {
     newSelectedItem.classList.add('selected');
     const selectboxSelected = dom.selectbox.querySelector('.selectbox__selected span')
     selectboxSelected.innerText = rooms[room]
+    activeRoom = room;
+    dom.temperature = roomsData
 
 }
 
@@ -92,43 +132,7 @@ function renderScreen(isRooms){
 
 /*ПАНЕЛЬ НАСТРОЕК КОМНАТЫ*/
 
-const settingsData = {
-  all: {
-    temperature: 0,
-    lights: 0,
-    humidity: 0,
-  },
-  livingroom: {
-    temperature: 0,
-    lights: 0,
-    humidity: 0,
-  },
-  bedroom : {
-    temperature: 0,
-    lights: 0,
-    humidity: 0,
-  },
-  kitchen: {
-    temperature: 0,
-    lights: 0,
-    humidity: 0,
-  },
-  bathroom: {
-    temperature: 0,
-    lights: 0,
-    humidity: 0,
-  },
-  studio: {
-    temperature: 0,
-    lights: 0,
-    humidity: 0,
-  },
-  washingroom: {
-    temperature: 0,
-    lights: 0,
-    humidity: 0,
-  }
-}
+
 
 function renderTemperature(temperature) {
   const min = 16;
@@ -162,6 +166,7 @@ function changeTemperature(){
   let mousedown = false;
   let position = 0;
   let range = 0;
+  let change = 0;
   dom.temperatureBtn.onmouseover = () => mouseover = true;
   dom.temperatureBtn.onmouseout = () => mouseover = false;
   dom.temperatureBtn.onmouseup = () => mousedown = false;
@@ -173,10 +178,17 @@ function changeTemperature(){
   dom.temperatureBtn.onmousemove = (e) => {
     if (mouseover && mousedown) {
       range = e.offsetY - position;
-      const change = Math.round(range / -100);
-      let temperature = +dom.temperature.innerText;
-      temperature = temperature + change;
-      renderTemperature(temperature);
+      const newChange = Math.round(range / -50);
+      if (newChange != change) {
+        let temperature = +dom.temperature.innerText;
+        if (newChange < change) {
+          temperature = temperature - 1;
+        } else {
+          temperature = temperature + 1;
+        }
+        change = newChange;
+        renderTemperature(temperature);
+      }
     }  
   }
 }
