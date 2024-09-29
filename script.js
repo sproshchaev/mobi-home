@@ -91,6 +91,7 @@ dom.selectboxList.onclick = (event) => {
 
 function selectRoom(room) {
   const selectedRoom = dom.rooms.querySelector('.selected');
+  const selectedSelectboxRoom = dom.selectbox.querySelector('.selectbox__item.selected');
   if (selectedRoom) {
     selectedRoom.classList.remove('selected');
     selectedSelectboxRoom.classList.remove('selected')
@@ -107,7 +108,6 @@ function selectRoom(room) {
     renderScreen(true)
 
   }
-    const selectedSelectboxRoom = dom.selectbox.querySelector('.selectbox__item.selected');
     selectedSelectboxRoom.classList.remove('selected');
     const newSelectedItem = dom.selectbox.querySelector(`[data-room=${room}]`);
     newSelectedItem.classList.add('selected');
@@ -211,7 +211,7 @@ dom.temperatureSaveBtn.onclick = () => {
 /* Отключение обогрева */
 dom.temperaturePowerBtn.onclick = () => {
   const power = dom.temperaturePowerBtn
-  power.classlist.toggle('off');
+  power.classList.toggle('off');
   if (power.matches('.off')){
     roomsData[activeRoom].temperatureOff = true;
   } else {
