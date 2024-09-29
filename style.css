@@ -44,14 +44,16 @@ justify-items: center;
 }
 
 .rooms {
-    display: grid;      
+    display: grid;   
+    display: none;   
     grid-template-columns: repeat(2, 1fr);
     margin: 0 20px;
     grid-template-columns: repeat(2, 150px);
     justify-content: center;
     align-items: center;
     grid-gap: 14px;
-    display: none;
+    
+    
 }
 
 
@@ -91,6 +93,8 @@ justify-items: center;
     padding: 0 20px;
     display: none;
     display: block;
+    
+    
 }
 .settings__tabs{
     display: grid;

@@ -7,6 +7,8 @@ const dom = {
     settingsPanel: document.getElementById('settings-panel'),
     temperatureLine: document.getElementById('temperature-line'),
     temperatureRound: document.getElementById('temperature-round'),
+    temperature: document.getElementById('temperature'),
+    temperatureBtn: document.getElementById('temperature-btn'),
 }
 dom.selectbox.querySelector('.selectbox__selected').onclick = (event) => {
     dom.selectbox.classList.toggle('open')
@@ -125,7 +127,7 @@ const settingsData = {
     temperature: 0,
     lights: 0,
     humidity: 0,
-  },
+  }
 }
 
 function renderTemperature(temperature) {
@@ -139,18 +141,43 @@ function renderTemperature(temperature) {
   const linePercent = lineRange / 100;
   const roundMin = -240;
   const roundMax = 48;
-  const roundRange = lineMax - lineMin;
-  const roundPercent = lineRange / 100;
+  const roundRange = roundMax - roundMin;
+  const roundPercent = roundRange / 100;
 
 
-  if (temperature >= min & temperature <= max) {
-    const finishPercent = math.Round((temperature - min) / percent);
+  if (temperature >= min && temperature <= max) {
+    const finishPercent = Math.round((temperature - min) / percent);
     const lineFinishPercent = lineMin + linePercent * finishPercent;
     const roundFinishPercent = roundMin + roundPercent * finishPercent;
     dom.temperatureLine.style.strokeDasharray = `${lineFinishPercent} 276`;
-    /*dom.temperatureRound.style.transform = `rotate(${roundFinishPercent}deg`;*/
-
+    dom.temperatureRound.style.transform = `rotate(${roundFinishPercent}deg`;
+    dom.temperature.innerText = temperature;
   }
-
 }
-renderTemperature(16)
+
+
+
+function changeTemperature(){
+  let mouseover = false;
+  let mousedown = false;
+  let position = 0;
+  let range = 0;
+  dom.temperatureBtn.onmouseover = () => mouseover = true;
+  dom.temperatureBtn.onmouseout = () => mouseover = false;
+  dom.temperatureBtn.onmouseup = () => mousedown = false;
+  dom.temperatureBtn.onmousedown = (e) => {
+     mousedown = true;
+     position = e.offsetY;
+     range = 0;
+  }
+  dom.temperatureBtn.onmousemove = (e) => {
+    if (mouseover && mousedown) {
+      range = e.offsetY - position;
+      const change = Math.round(range / -100);
+      let temperature = +dom.temperature.innerText;
+      temperature = temperature + change;
+      renderTemperature(temperature);
+    }  
+  }
+}
+changeTemperature()
