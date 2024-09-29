@@ -202,16 +202,16 @@ function changeTemperature(){
 }
 changeTemperature()
 
-
+/* Сохранение температуры */
 dom.temperatureSaveBtn.onclick = () => {
    const temperature = +dom.temperature.innerText;
-   roomsData[activeRoom].temperature = temperature;
+   roomsData[activeRoom].temperature = temperature
 }
 
+/* Отключение обогрева */
 dom.temperaturePowerBtn.onclick = () => {
-  const power = dom.temperaturePowerBtn;
+  const power = dom.temperaturePowerBtn
   power.classlist.toggle('off');
-
   if (power.matches('.off')){
     roomsData[activeRoom].temperatureOff = true;
   } else {
@@ -220,7 +220,7 @@ dom.temperaturePowerBtn.onclick = () => {
 }
 /* Установка значения кнопки включения температуры */
 function setTemperaturePower(){
-  if (roomsData[activeroom].temperatureOff) {
+  if (roomsData[activeRoom].temperatureOff) {
     dom.temperaturePowerBtn.classList.add('off');
   } else {
       dom.temperaturePowerBtn.classList.remove('off');
