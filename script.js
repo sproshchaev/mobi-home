@@ -223,7 +223,7 @@ function setTemperaturePower(){
   if (roomsData[activeRoom].temperatureOff) {
     dom.temperaturePowerBtn.classList.add('off');
   } else {
-      dom.temperaturePowerBtn.classList.remove('off');
+    dom.temperaturePowerBtn.classList.remove('off');
   }
 }
 
