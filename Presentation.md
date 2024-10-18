@@ -1,3 +1,12 @@
+Проект опубликован по адресу https://dproshchaeva.github.io/mobi-home/ 
+Организация: МАОУ СОШ № 40 города Тюмени
+Руководитель команды: Токарева Инна Валерьевна
+Контактный телефон: +79028184808 
+Контактный адрес эл.почты: tokareva.inna81@mail.ru
+Населенный пункт: Тюмень 
+Презентация: https://disk.yandex.ru/i/RtQy7i4tKliYqA 
+Ссылка на видео: https://rutube.ru/video/private/ca83c94b9eacd224f55de001b80cf5db/?p=XJtsyAMU-B1TYIn8Q0EyWg
+
 План презентации: 
 
 ### 1. Как разработано это приложение
